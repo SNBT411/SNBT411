@@ -26,6 +26,16 @@
             <div class="section-title">
                 <h3 id="info"><span>INFORMATION</span></h3>
             </div>
+            <div class="section-content">
+				<?php query_posts('cat=2&showposts=5'); ?>
+				<?php if(have_posts()): while(have_posts()):the_post(); ?>
+                <div class="item">
+                    <div class="date"><span><?php the_time('Y/m/d');?></span></div>
+                    <div class="body"><span><?php the_title();?></span></div>
+                </div>
+				<?php endwhile; endif; ?>
+				<?php wp_reset_query(); ?>
+            </div>
         </section>
         <section class="company">
             <div class="section-title">
